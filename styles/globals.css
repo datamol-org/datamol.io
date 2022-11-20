@@ -1,3 +1,112 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Fkgrotesk';
+  src: url('/fonts/fk-grotesk/6001b7961b444272e0c5b9f5_FKGrotesk-LightItalic.otf')
+      format('opentype'),
+    url('/fonts/fk-grotesk/6001b7939938839e374fb725_FKGrotesk-LightSemiItalic.otf')
+      format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fkgrotesk';
+  src: url('/fonts/fk-grotesk/6001b7931fd463d7005ed343_FKGrotesk-ThinSemiItalic.otf')
+      format('opentype'),
+    url('/fonts/fk-grotesk/6001b793258081dc630caa3b_FKGrotesk-ThinItalic.otf')
+      format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fkgrotesk';
+  src: url('/fonts/fk-grotesk/6001b793ead0751495a19b2d_FKGrotesk-Thin.otf')
+    format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fkgrotesk';
+  src: url('/fonts/fk-grotesk/6001b79353895f502518c343_FKGrotesk-RegularSemiItalic.otf')
+      format('opentype'),
+    url('/fonts/fk-grotesk/6001b793c958d6218d78f8ba_FKGrotesk-RegularItalic.otf')
+      format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fkgrotesk';
+  src: url('/fonts/fk-grotesk/6001b7938fd70114023a3406_FKGrotesk-Light.otf')
+    format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fkgrotesk';
+  src: url('/fonts/fk-grotesk/6001b793ba9db94351d65e4d_FKGrotesk-BoldSemiItalic.otf')
+      format('opentype'),
+    url('/fonts/fk-grotesk/6001b793ba9db9dc15d65e4c_FKGrotesk-BoldItalic.otf')
+      format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fkgrotesk';
+  src: url('/fonts/fk-grotesk/6001b79353c7b06d552c9219_FKGrotesk-MediumSemiItalic.otf')
+      format('opentype'),
+    url('/fonts/fk-grotesk/6001b7939400a431ce3f63ca_FKGrotesk-MediumItalic.otf')
+      format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fkgrotesk';
+  src: url('/fonts/fk-grotesk/6001b7939938838c324fb726_FKGrotesk-Medium.otf')
+    format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fkgrotesk';
+  src: url('/fonts/fk-grotesk/6001b7932e646c8f505efc21_FKGrotesk-Regular.otf')
+    format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fkgrotesk';
+  src: url('/fonts/fk-grotesk/6001b793a725a00c1d1a64c3_FKGrotesk-BlackSemiItalic.otf')
+      format('opentype'),
+    url('/fonts/fk-grotesk/6001b7938fd701846e3a3405_FKGrotesk-BlackItalic.otf')
+      format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fkgrotesk';
+  src: url('/fonts/fk-grotesk/6001b7932e646c48bd5efc1f_FKGrotesk-Bold.otf')
+    format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fkgrotesk';
+  src: url('/fonts/fk-grotesk/6001b79399388312494fb724_FKGrotesk-Black.otf')
+    format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
