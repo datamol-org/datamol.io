@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import {
@@ -13,10 +14,14 @@ import {
 } from '@heroicons/react/24/outline';
 
 const navigation = [
-  { name: 'The Story', href: '#' },
-  { name: 'DatamolKit', href: '#' },
-  { name: 'Docs', href: '#' },
-  { name: 'Datamol Fingerprints', href: '#' }
+  {
+    name: 'The Story',
+    href: 'https://m2d2.io/blog/posts/open-sourcing-datamol-a-python-library-to-intuitively-manipulate-molecules/',
+    external: true
+  },
+  { name: 'DatamolKit', href: '/' },
+  { name: 'Docs', href: 'https://doc.datamol.io', external: true },
+  { name: 'Datamol Fingerprints', href: '/datamol-fingerprints' }
 ];
 
 const footerNavigation = {
@@ -177,20 +182,32 @@ export default function Home() {
                 </button>
               </div>
               <div className="hidden lg:flex lg:min-w-max lg:flex-1 lg:justify-center lg:gap-x-12">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="font-semibold text-gray-700 transition duration-200 ease-in-out hover:text-gray-900"
-                  >
-                    {item.name}
-                  </a>
-                ))}
+                {navigation.map((item) =>
+                  item.external ? (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      target="_blank"
+                      className="font-semibold text-gray-700 transition duration-200 ease-in-out hover:text-gray-900"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="font-semibold text-gray-700 transition duration-200 ease-in-out hover:text-gray-900"
+                    >
+                      {item.name}
+                    </Link>
+                  )
+                )}
               </div>
               <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
                 {footerNavigation.social.map((item) => (
                   <a
                     href={item.href}
+                    target="_blank"
                     className="inline-block px-3 py-1.5 text-sm font-semibold leading-6 text-gray-700 transition duration-200 ease-in-out hover:text-gray-900"
                   >
                     <span className="sr-only">{item.name}</span>
