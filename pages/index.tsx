@@ -37,16 +37,6 @@ const footerNavigation = {
       )
     },
     {
-      name: 'Discuss',
-      href: 'https://github.com/datamol-org/datamol/discussions',
-      icon: (props) => (
-        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-          <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"></path>
-          <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"></path>
-        </svg>
-      )
-    },
-    {
       name: 'GitHub',
       href: 'https://github.com/datamol-org/datamol',
       icon: (props) => (
@@ -460,15 +450,15 @@ export default function Home() {
               ))}
             </div>
             <p className="mt-8 text-center text-base text-gray-400">
-              &copy; 2021 Datamol &middot; Sponsored by{' '}
+              &copy; 2021 Datamol &middot; Powered by{' '}
               <a
                 href="https://valencediscovery.com"
                 target="_blank"
                 className="border-b border-dotted border-gray-200 transition duration-200 hover:border-gray-300"
               >
                 Valence Discovery
-              </a>{' '}
-              &middot; All rights reserved.
+              </a>
+              .
             </p>
           </div>
         </footer>
