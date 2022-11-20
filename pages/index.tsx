@@ -162,7 +162,7 @@ export default function Home() {
                   <span className="sr-only">Datamol</span>
                   <img
                     className="h-8"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    src="https://tailwindui.com/img/logos/mark.svg?color=brand&shade=600"
                     alt=""
                   />
                 </a>
@@ -208,7 +208,7 @@ export default function Home() {
                       <span className="sr-only">Your Company</span>
                       <img
                         className="h-8"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                        src="https://tailwindui.com/img/logos/mark.svg?color=brand&shade=600"
                         alt=""
                       />
                     </a>
@@ -255,43 +255,48 @@ export default function Home() {
           <div className="relative px-6 lg:px-8">
             <div className="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
               <div>
-                <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+                {/* <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                   <div className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                     <span className="text-gray-600">
                       Winner of the 2022 OGB Challenge for Molecular Property
                       Prediction.{' '}
-                      <a href="#" className="font-semibold text-indigo-600">
+                      <a href="#" className="font-semibold text-brand-600">
                         <span className="absolute inset-0" aria-hidden="true" />
                         Read more <span aria-hidden="true">&rarr;</span>
                       </a>
                     </span>
                   </div>
-                </div>
+                </div> */}
                 <div>
                   <h1 className="text-center text-4xl font-bold tracking-tight sm:text-6xl">
                     The Cheminformatics toolkit for ML Scientists
                   </h1>
                   <p className="mt-6 text-center text-lg leading-8 text-gray-600">
                     Datamol is an elegant, rdkit-powered python library
-                    <br />
                     optimized for machine learning molecular workflow
                   </p>
                   <div className="mt-8 flex justify-center gap-x-4">
                     <a
-                      href="#"
-                      className="group inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700"
+                      href="https://doc.datamol.io"
+                      target="_blank"
+                      className="group inline-flex items-center justify-center rounded-lg bg-brand-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-1 ring-brand-600 transition hover:bg-brand-700 hover:ring-brand-700"
                     >
-                      <span className="mr-2">Get started</span>
+                      Get started
                       <svg
-                        className="h-3 w-3"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
+                        className="mt-0.5 ml-2 -mr-1 stroke-white stroke-2"
+                        fill="none"
+                        width="10"
+                        height="10"
+                        viewBox="0 0 10 10"
+                        aria-hidden="true"
                       >
                         <path
-                          fill-rule="evenodd"
-                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                          clip-rule="evenodd"
+                          className="opacity-0 transition group-hover:opacity-100"
+                          d="M0 5h7"
+                        ></path>
+                        <path
+                          className="transition group-hover:translate-x-[3px]"
+                          d="M1 1l4 4-4 4"
                         ></path>
                       </svg>
                     </a>
@@ -333,7 +338,7 @@ export default function Home() {
               <div className="text-center">
                 <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                   Why You'll Love{' '}
-                  <span className="text-indigo-500">Datamol</span>
+                  <span className="text-brand-500">Datamol</span>
                 </p>
               </div>
 
@@ -344,7 +349,7 @@ export default function Home() {
                       key={feature.name}
                       className="relative flex flex-col items-center justify-center gap-6 sm:flex-row md:flex-col lg:flex-row"
                     >
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl text-indigo-500 sm:shrink-0">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl text-brand-500 sm:shrink-0">
                         <feature.icon className="h-8 w-8" aria-hidden="true" />
                       </div>
                       <div className="sm:min-w-0 sm:flex-1">
@@ -366,9 +371,8 @@ export default function Home() {
                   Standing on the Shoulders of Giants
                 </h2>
                 <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-                  Datamol is built on top of powerful numerical
-                  <br />
-                  and cheminformatics scientific libraries
+                  Datamol is built on top of powerful numerical and
+                  cheminformatics scientific libraries
                 </p>
               </div>
 
