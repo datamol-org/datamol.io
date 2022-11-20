@@ -348,7 +348,7 @@ export default function Home() {
               </div>
 
               <div className="mt-20 max-w-lg sm:mx-auto md:max-w-none">
-                <div className="grid grid-cols-1 gap-y-16 md:grid-cols-2 md:gap-x-48 md:gap-y-16">
+                <div className="grid grid-cols-1 gap-y-16 md:grid-cols-2 md:gap-x-48 md:gap-y-10">
                   {features.map((feature) => (
                     <div
                       key={feature.name}
@@ -369,7 +369,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="bg-white py-10">
+          <div className="bg-white py-8">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="text-center">
                 <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
