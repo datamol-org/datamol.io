@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import {
   BoltIcon,
-  DevicePhoneMobileIcon,
-  GlobeAltIcon,
+  SparklesIcon,
+  LightBulbIcon,
+  CheckCircleIcon,
+  CubeIcon,
   ScaleIcon,
   Bars3Icon,
   XMarkIcon
@@ -38,13 +40,9 @@ const footerNavigation = {
       name: 'Discuss',
       href: 'https://github.com/datamol-org/datamol/discussions',
       icon: (props) => (
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" {...props}>
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-          ></path>
+        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+          <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"></path>
+          <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"></path>
         </svg>
       )
     },
@@ -67,23 +65,23 @@ const footerNavigation = {
 const features = [
   {
     name: 'Highly intuitive',
-    icon: GlobeAltIcon
+    icon: LightBulbIcon
   },
   {
     name: 'Dead simple',
-    icon: ScaleIcon
+    icon: CheckCircleIcon
   },
   {
     name: 'Light as a feather',
-    icon: DevicePhoneMobileIcon
+    icon: ScaleIcon
   },
   {
     name: 'Feature rich',
-    icon: DevicePhoneMobileIcon
+    icon: SparklesIcon
   },
   {
     name: 'Extensible',
-    icon: DevicePhoneMobileIcon
+    icon: CubeIcon
   },
   {
     name: 'Blazing fast',
@@ -281,9 +279,21 @@ export default function Home() {
                   <div className="mt-8 flex justify-center gap-x-4">
                     <a
                       href="#"
-                      className="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700"
+                      className="group inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700"
                     >
-                      Get started
+                      <span className="mr-2">Get started</span>
+                      <svg
+                        className="h-3 w-3"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
                     </a>
                   </div>
                 </div>
@@ -438,7 +448,10 @@ export default function Home() {
                   target="_blank"
                 >
                   <span className="sr-only">{item.name}</span>
-                  <item.icon className="h-6 w-6" aria-hidden="true" />
+                  <item.icon
+                    className={item.name === 'Discuss' ? 'h-7 w-7' : 'h-6 w-6'}
+                    aria-hidden="true"
+                  />
                 </a>
               ))}
             </div>
