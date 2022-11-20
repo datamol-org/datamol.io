@@ -369,7 +369,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="bg-white py-24 sm:py-32 lg:py-40">
+          <div className="bg-white py-10">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="text-center">
                 <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -431,7 +431,7 @@ export default function Home() {
             </div>
           </div>
         </main>
-        <footer className="bg-white">
+        <footer className="mt-20 bg-white sm:mt-24">
           <div className="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
             <nav
               className="-mx-5 -my-2 flex flex-wrap justify-center"
