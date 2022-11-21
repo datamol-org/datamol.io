@@ -6,6 +6,16 @@ import {
   CubeIcon,
   ScaleIcon
 } from '@heroicons/react/24/outline';
+import CopyToClipboard from 'react-copy-to-clipboard';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import bash from 'react-syntax-highlighter/dist/cjs/languages/prism/bash';
+import python from 'react-syntax-highlighter/dist/cjs/languages/prism/python';
+import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx';
+import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+
+SyntaxHighlighter.registerLanguage('bash', bash);
+SyntaxHighlighter.registerLanguage('python', python);
+SyntaxHighlighter.registerLanguage('jsx', jsx);
 
 const features = [
   {
@@ -48,7 +58,7 @@ export default function Home() {
                 Datamol is an elegant, rdkit-powered python library optimized
                 for machine learning molecular workflow
               </p>
-              <div className="mt-8 flex justify-center gap-x-4">
+              <div className="mt-12 flex justify-center gap-x-4">
                 <a
                   href="https://doc.datamol.io"
                   target="_blank"
@@ -73,6 +83,66 @@ export default function Home() {
                     ></path>
                   </svg>
                 </a>
+              </div>
+              <div className="mt-16">
+                <SyntaxHighlighter
+                  language="bash"
+                  style={dracula}
+                  customStyle={{
+                    padding: '20px',
+                    borderRadius: '0.25rem'
+                  }}
+                >
+                  {`# All you need is:
+$ mamba install -c conda-forge datamol`}
+                </SyntaxHighlighter>
+              </div>
+              <div className="mt-8">
+                <SyntaxHighlighter
+                  language="python"
+                  style={dracula}
+                  customStyle={{
+                    padding: '20px',
+                    borderRadius: '0.25rem'
+                  }}
+                >
+                  {`import datamol as dm
+
+# Common functions
+mol = dm.to_mol("O=C(C)Oc1ccccc1C(=O)O", sanitize=True)
+fp = dm.to_fp(mol)
+selfies = dm.to_selfies(mol)
+inchi = dm.to_inchi(mol)
+
+# Standardize and sanitize
+mol = dm.to_mol("O=C(C)Oc1ccccc1C(=O)O")
+mol = dm.fix_mol(mol)
+mol = dm.sanitize_mol(mol)
+mol = dm.standardized_mol(mol)
+
+# Dataframe manipulation
+df = dm.data.freesolv()
+mols = dm.from_df(df)
+
+# 2D viz
+legends = [dm.to_smiles(mol) for mol in mols[:10]]
+dm.viz.to_image(mols[:10], legends=legends)
+
+# Generate conformers
+smiles = "O=C(C)Oc1ccccc1C(=O)O"
+mol = dm.to_mol(smiles)
+mol_with_conformers = dm.conformers.generate(mol)
+
+# 3D viz (using nglview)
+dm.viz.conformers(mol, n_confs=10)
+
+# Compute SASA from conformers
+sasa = dm.conformers.sasa(mol_with_conformers)
+
+# Easy IO
+mols = dm.read_sdf("s3://my-awesome-data-lake/smiles.sdf", as_df=False)
+dm.to_sdf(mols, "gs://data-bucket/smiles.sdf")`}
+                </SyntaxHighlighter>
               </div>
             </div>
             <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
