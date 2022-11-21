@@ -7,7 +7,7 @@ export const navigation = {
       external: true
     },
     { name: 'Datamol Docs', href: 'https://doc.datamol.io', external: true },
-    { name: 'MolGPS (coming soon)', href: '/molgps' }
+    { name: 'MolGPS', href: '/molgps' }
   ],
   social: [
     {
