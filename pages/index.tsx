@@ -6,7 +6,6 @@ import {
   CubeIcon,
   ScaleIcon
 } from '@heroicons/react/24/outline';
-import CopyToClipboard from 'react-copy-to-clipboard';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import bash from 'react-syntax-highlighter/dist/cjs/languages/prism/bash';
 import python from 'react-syntax-highlighter/dist/cjs/languages/prism/python';
