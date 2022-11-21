@@ -21,20 +21,20 @@ const navigation = [
   },
   { name: 'DatamolKit', href: '/' },
   { name: 'Docs', href: 'https://doc.datamol.io', external: true },
-  { name: 'Datamol Fingerprints', href: '/datamol-fingerprints' }
+  { name: 'MolGPS', href: '/datamol-fingerprints' }
 ];
 
 const footerNavigation = {
   main: [
     { name: 'The Story', href: '#' },
-    { name: 'Documentation', href: '#' },
-    { name: 'Datamol Fingerprints', href: '#' }
+    { name: 'Docs', href: '#' },
+    { name: 'MolGPS', href: '#' }
   ],
   social: [
     {
       name: 'Follow us on Twitter',
       href: 'https://twitter.com/datamol_io',
-      icon: (props) => (
+      icon: (props: any) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
         </svg>
@@ -43,7 +43,7 @@ const footerNavigation = {
     {
       name: 'Discuss on GitHub',
       href: 'https://github.com/datamol-org/datamol/discussions',
-      icon: (props) => (
+      icon: (props: any) => (
         <svg fill="currentColor" viewBox="0 0 20 20" {...props}>
           <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"></path>
           <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"></path>
@@ -53,7 +53,7 @@ const footerNavigation = {
     {
       name: 'View Source Code',
       href: 'https://github.com/datamol-org/datamol',
-      icon: (props) => (
+      icon: (props: any) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -208,6 +208,7 @@ export default function Home() {
                 {footerNavigation.social.map((item) => (
                   <a
                     href={item.href}
+                    key={item.name}
                     target="_blank"
                     className="inline-block px-3 py-1.5 text-sm font-semibold leading-6 text-gray-700 transition duration-200 ease-in-out hover:text-gray-900"
                   >
@@ -218,10 +219,7 @@ export default function Home() {
               </div>
             </nav>
             <Dialog as="div" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-              <Dialog.Panel
-                focus="true"
-                className="fixed inset-0 z-10 overflow-y-auto bg-white px-6 py-6 lg:hidden"
-              >
+              <Dialog.Panel className="fixed inset-0 z-10 overflow-y-auto bg-white px-6 py-6 lg:hidden">
                 <div className="flex h-9 items-center justify-between">
                   <div className="flex">
                     <a
