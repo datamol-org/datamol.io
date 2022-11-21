@@ -51,11 +51,11 @@ export default function Home() {
           <div>
             <div>
               <h1 className="text-center text-4xl font-bold tracking-tight text-gray-800 sm:text-6xl">
-                The Cheminformatics toolkit for ML Scientists
+                The Cheminformatics Toolkit for ML Scientists
               </h1>
               <p className="mt-6 text-center text-lg leading-8 text-gray-700">
-                Datamol is an elegant, rdkit-powered python library optimized
-                for machine learning molecular workflow
+                Datamol is an elegant, RDKit-powered python library optimized
+                for molecular machine learning workflows
               </p>
               <div className="mt-12 flex justify-center gap-x-4">
                 <a
