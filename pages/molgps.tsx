@@ -170,7 +170,7 @@ export default function Home() {
                 <p className="flex items-center pt-3 font-semibold text-brand-500">
                   <CheckCircleIcon className="h-8 w-8" aria-hidden="true" />
                   <span className="ml-2">
-                    Thanks, you've been added to the waiting list 🎉
+                    Thanks, you&apos;ve been added to the waiting list 🎉
                   </span>
                 </p>
               )}

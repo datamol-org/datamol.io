@@ -180,7 +180,8 @@ dm.to_sdf(mols, "gs://data-bucket/smiles.sdf")`}
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-center px-6 lg:px-8">
           <div className="text-center">
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Why You'll Love <span className="text-brand-500">Datamol</span>
+              Why You&apos;ll Love{' '}
+              <span className="text-brand-500">Datamol</span>
             </p>
           </div>
 
