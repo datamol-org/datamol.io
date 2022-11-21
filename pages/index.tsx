@@ -129,7 +129,7 @@ export default function Home() {
               <div className="mt-16">
                 <div className="relative">
                   <CopyToClipboard
-                    text={firstBlockCodeContent}
+                    text="mamba install -c conda-forge datamol"
                     onCopy={() =>
                       toast.success('Copied to your clipboard', {
                         position: 'bottom-left'
