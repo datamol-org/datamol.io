@@ -96,7 +96,7 @@ export default function Home() {
                   <a href="#" target="_blank" rel="noreferrer">
                     <img
                       className="rounded-lg object-cover object-center shadow-lg"
-                      src="/images/ogb-paper.png?v=2"
+                      src="/images/ogb-paper-2022.png"
                       alt="Winner of the 2022 OGB Challenge"
                       width={1184}
                       height={1376}
