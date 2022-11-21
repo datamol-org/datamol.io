@@ -119,7 +119,7 @@ export default function Home() {
               {!hasBeenAddedToTheWaitingList && (
                 <>
                   <h4 className="text-center text-base font-medium text-gray-900 sm:text-left">
-                    Sign up to for early access.
+                    Sign up for early access.
                   </h4>
                   <form onSubmit={handleSubmit} className="mt-3 sm:flex">
                     <label htmlFor="email" className="sr-only">
@@ -137,7 +137,7 @@ export default function Home() {
                     />
                     <button
                       type="submit"
-                      className="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-gray-800 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:inline-flex sm:w-auto sm:flex-shrink-0 sm:items-center"
+                      className="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-gray-800 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-900 focus:bg-gray-700 focus:outline-none sm:mt-0 sm:ml-3 sm:inline-flex sm:w-auto sm:flex-shrink-0 sm:items-center"
                     >
                       {isSubmitting && (
                         <svg
@@ -167,10 +167,10 @@ export default function Home() {
                 </>
               )}
               {hasBeenAddedToTheWaitingList && (
-                <p className="flex items-center pt-3 font-semibold text-brand-500">
+                <p className="flex items-center pt-3 font-semibold text-brand-800">
                   <CheckCircleIcon className="h-8 w-8" aria-hidden="true" />
                   <span className="ml-2">
-                    Thanks, you&apos;ve been added to the waiting list 🎉
+                    Thanks, you&apos;ve been added to the waiting list 🎉.
                   </span>
                 </p>
               )}
