@@ -1,12 +1,12 @@
 export const navigation = {
   main: [
-    { name: 'Datamol', href: '/' },
+    { name: 'Home', href: '/' },
     {
-      name: 'The Story',
+      name: 'Datamol Story',
       href: 'https://m2d2.io/blog/posts/open-sourcing-datamol-a-python-library-to-intuitively-manipulate-molecules/',
       external: true
     },
-    { name: 'Docs', href: 'https://doc.datamol.io', external: true },
+    { name: 'Datamol Docs', href: 'https://doc.datamol.io', external: true },
     { name: 'MolGPS (coming soon)', href: '/molgps' }
   ],
   social: [
