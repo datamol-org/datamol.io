@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Head from 'next/head';
 import { CheckCircleIcon } from '@heroicons/react/24/outline';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
+import toast, { Toaster } from 'react-hot-toast';
 
 // Config variables
 const SPREADSHEET_ID: any = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -27,9 +28,7 @@ const appendSpreadsheet = async (row: any) => {
     await sheet.addRow(row);
   } catch (e) {
     console.error('Error: ', e);
-    // toast.error({
-    //   message: 'An error occured while subscribing',
-    // });
+    throw new Error('An error occured while subscribing.');
   }
 };
 
@@ -44,11 +43,17 @@ export default function Home() {
 
     setIsSubmitting(true);
 
-    appendSpreadsheet({ Email: email });
-
-    setEmail('');
-    setIsSubmitting(false);
-    setHasBeenAddedToTheWaitingList(true);
+    appendSpreadsheet({ Email: email })
+      .then(() => {
+        setEmail('');
+        setHasBeenAddedToTheWaitingList(true);
+      })
+      .catch((e: any) => {
+        toast.error(e.message);
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   return (
@@ -171,6 +176,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <Toaster />
     </>
   );
 }
