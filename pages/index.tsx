@@ -18,10 +18,10 @@ SyntaxHighlighter.registerLanguage('bash', bash);
 SyntaxHighlighter.registerLanguage('python', python);
 SyntaxHighlighter.registerLanguage('jsx', jsx);
 
-const firstBlockCodeContent = `# All you need is:
+const firstCodeBlockContent = `# All you need is:
 $ mamba install -c conda-forge datamol`;
 
-const secondBlockCodeContent = `import datamol as dm
+const secondCodeBlockContent = `import datamol as dm
 
 # Common functions
 mol = dm.to_mol("O=C(C)Oc1ccccc1C(=O)O", sanitize=True)
@@ -201,14 +201,14 @@ export default function Home() {
                       borderRadius: '0.25rem'
                     }}
                   >
-                    {firstBlockCodeContent}
+                    {firstCodeBlockContent}
                   </SyntaxHighlighter>
                 </div>
               </div>
               <div className="mt-8">
                 <div className="relative">
                   <CopyToClipboard
-                    text={secondBlockCodeContent}
+                    text={secondCodeBlockContent}
                     onCopy={() =>
                       toast.success('Copied to your clipboard', {
                         position: 'bottom-left'
@@ -280,7 +280,7 @@ export default function Home() {
                       borderRadius: '0.25rem'
                     }}
                   >
-                    {secondBlockCodeContent}
+                    {secondCodeBlockContent}
                   </SyntaxHighlighter>
                 </div>
               </div>
