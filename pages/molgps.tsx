@@ -79,12 +79,12 @@ export default function Home() {
           <div className="relative md:-mt-60 lg:col-start-2 lg:row-start-1">
             <div className="relative mx-auto max-w-prose text-base lg:max-w-none">
               <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-                <div className="relative  overflow-hidden rounded-full bg-brand-500 py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                  <span className="text-gray-50">
+                <div className="relative overflow-hidden rounded-full bg-gray-50 py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                  <span className="text-gray-600">
                     <span className="mr-4">
-                      First Place &middot; Winner of the 2022 OGB Challenge
+                      🥇 First Place &middot; Winner of the 2022 OGB Challenge
                     </span>
-                    <a href="#" className="font-semibold text-brand-50">
+                    <a href="#" className="font-semibold text-brand-600">
                       <span className="absolute inset-0" aria-hidden="true" />
                       Read more <span aria-hidden="true">&rarr;</span>
                     </a>
@@ -96,7 +96,7 @@ export default function Home() {
                   <a href="#" target="_blank" rel="noreferrer">
                     <img
                       className="rounded-lg object-cover object-center shadow-lg"
-                      src="/images/ogb-paper.png"
+                      src="/images/ogb-paper.png?v=2"
                       alt="Winner of the 2022 OGB Challenge"
                       width={1184}
                       height={1376}
@@ -108,7 +108,7 @@ export default function Home() {
           </div>
           <div className="mt-8 lg:mt-0">
             <div className="mx-auto max-w-prose text-base lg:max-w-none">
-              <p className="text-center text-lg text-gray-500 sm:text-left">
+              <p className="text-center text-lg text-gray-700 sm:text-left">
                 Stop worrying about molecular featurization and focus on machine
                 learning. Use the world&apos;s largest pre-trained molecular
                 featurizer to produce SOTA results in molecular property

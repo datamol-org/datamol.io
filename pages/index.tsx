@@ -53,7 +53,7 @@ export default function Home() {
               <h1 className="text-center text-4xl font-bold tracking-tight sm:text-6xl">
                 The Cheminformatics toolkit for ML Scientists
               </h1>
-              <p className="mt-6 text-center text-lg leading-8 text-gray-600">
+              <p className="mt-6 text-center text-lg leading-8 text-gray-700">
                 Datamol is an elegant, rdkit-powered python library optimized
                 for machine learning molecular workflow
               </p>
@@ -62,11 +62,11 @@ export default function Home() {
                   href="https://doc.datamol.io"
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center justify-center rounded-lg bg-brand-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-1 ring-brand-600 transition hover:bg-brand-700 hover:ring-brand-700"
+                  className="group inline-flex items-center justify-center rounded-lg bg-white px-4 py-1.5 text-base font-semibold leading-7 text-gray-800 shadow-sm transition hover:bg-gray-100"
                 >
                   Get started
                   <svg
-                    className="mt-0.5 ml-2 -mr-1 stroke-white stroke-2"
+                    className="mt-0.5 ml-2 -mr-1 stroke-gray-800 stroke-2"
                     fill="none"
                     width="10"
                     height="10"
