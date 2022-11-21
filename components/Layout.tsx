@@ -103,6 +103,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
                       key={item.name}
                       href={item.href}
                       target="_blank"
+                      rel="noreferrer"
                       className="font-semibold text-gray-700 transition duration-200 ease-in-out hover:text-gray-900"
                     >
                       {item.name}
@@ -124,6 +125,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
                     href={item.href}
                     key={item.name}
                     target="_blank"
+                    rel="noreferrer"
                     className="inline-block px-3 py-1.5 text-sm font-semibold leading-6 text-gray-700 transition duration-200 ease-in-out hover:text-gray-900"
                   >
                     <span className="sr-only">{item.name}</span>
@@ -166,6 +168,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
                             key={item.name}
                             href={item.href}
                             target="_blank"
+                            rel="noreferrer"
                             className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10"
                           >
                             {item.name}
@@ -187,6 +190,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
                           href={item.href}
                           key={item.name}
                           target="_blank"
+                          rel="noreferrer"
                           className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-6 text-gray-900 hover:bg-gray-400/10"
                         >
                           {item.name}

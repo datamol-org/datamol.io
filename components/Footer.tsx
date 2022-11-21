@@ -17,6 +17,7 @@ export default function Footer() {
                 <a
                   href={item.href}
                   target="_blank"
+                  rel="noreferrer"
                   className="text-base text-gray-500 hover:text-gray-900"
                 >
                   {item.name}
@@ -39,6 +40,7 @@ export default function Footer() {
               href={item.href}
               className="text-gray-400 transition duration-200 ease-in-out hover:text-gray-500"
               target="_blank"
+              rel="noreferrer"
             >
               <span className="sr-only">{item.name}</span>
               <item.icon className="h-6 w-6" aria-hidden="true" />
@@ -50,6 +52,7 @@ export default function Footer() {
           <a
             href="https://valencediscovery.com"
             target="_blank"
+            rel="noreferrer"
             className="border-b border-dotted border-gray-200 transition duration-200 ease-in-out hover:border-gray-300"
           >
             Valence Discovery

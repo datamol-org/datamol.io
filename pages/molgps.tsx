@@ -93,7 +93,7 @@ export default function Home() {
               </div>
               <figure>
                 <div className="aspect-w-12 aspect-h-7 lg:aspect-none">
-                  <a href="#" target="_blank">
+                  <a href="#" target="_blank" rel="noreferrer">
                     <img
                       className="rounded-lg object-cover object-center shadow-lg"
                       src="/images/ogb-paper.png"
