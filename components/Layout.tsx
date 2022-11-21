@@ -215,7 +215,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 
         <Footer />
 
-        <Toaster position="botton-left" />
+        <Toaster />
       </div>
     </>
   );

@@ -130,7 +130,11 @@ export default function Home() {
                 <div className="relative">
                   <CopyToClipboard
                     text={firstBlockCodeContent}
-                    onCopy={() => toast.success('Copied')}
+                    onCopy={() =>
+                      toast.success('Copied to your clipboard', {
+                        position: 'bottom-left'
+                      })
+                    }
                   >
                     <button className="group absolute top-0 right-0 ml-2 hidden h-9 w-9 items-center justify-center text-white sm:flex">
                       <svg
@@ -205,7 +209,11 @@ export default function Home() {
                 <div className="relative">
                   <CopyToClipboard
                     text={secondBlockCodeContent}
-                    onCopy={() => toast.success('Copied')}
+                    onCopy={() =>
+                      toast.success('Copied to your clipboard', {
+                        position: 'bottom-left'
+                      })
+                    }
                   >
                     <button className="group absolute top-0 right-0 ml-2 hidden h-9 w-9 items-center justify-center text-white sm:flex">
                       <svg

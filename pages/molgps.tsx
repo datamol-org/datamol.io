@@ -49,7 +49,7 @@ export default function Home() {
         setHasBeenAddedToTheWaitingList(true);
       })
       .catch((e: any) => {
-        toast.error(e.message);
+        toast.error(e.message, { position: 'bottom-left' });
       })
       .finally(() => {
         setIsSubmitting(false);
