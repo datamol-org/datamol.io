@@ -71,7 +71,7 @@ export default function Home() {
         <div className="mx-auto max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8">
           <div>
             <h2 className="px-6 text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:px-0 sm:text-left sm:text-4xl md:mt-48">
-              The Largest pre-trained model for rich molecular featurization
+              The largest pre-trained model for rich molecular featurization
             </h2>
           </div>
         </div>
@@ -82,7 +82,7 @@ export default function Home() {
                 <div className="relative overflow-hidden rounded-full bg-gray-50 py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                   <span className="text-gray-600">
                     <span className="mr-4">
-                      🥇 First Place &middot; Winner of the 2022 OGB Challenge
+                      🥇 First Place Winner of the 2022 OGB Challenge
                     </span>
                     <a href="#" className="font-semibold text-brand-600">
                       <span className="absolute inset-0" aria-hidden="true" />
