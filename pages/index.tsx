@@ -6,6 +6,7 @@ import {
   CubeIcon,
   ScaleIcon
 } from '@heroicons/react/24/outline';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import bash from 'react-syntax-highlighter/dist/cjs/languages/prism/bash';
 import python from 'react-syntax-highlighter/dist/cjs/languages/prism/python';
@@ -15,6 +16,46 @@ import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 SyntaxHighlighter.registerLanguage('bash', bash);
 SyntaxHighlighter.registerLanguage('python', python);
 SyntaxHighlighter.registerLanguage('jsx', jsx);
+
+const firstBlockCodeContent = `# All you need is:
+$ mamba install -c conda-forge datamol`;
+
+const secondBlockCodeContent = `import datamol as dm
+
+# Common functions
+mol = dm.to_mol("O=C(C)Oc1ccccc1C(=O)O", sanitize=True)
+fp = dm.to_fp(mol)
+selfies = dm.to_selfies(mol)
+inchi = dm.to_inchi(mol)
+
+# Standardize and sanitize
+mol = dm.to_mol("O=C(C)Oc1ccccc1C(=O)O")
+mol = dm.fix_mol(mol)
+mol = dm.sanitize_mol(mol)
+mol = dm.standardized_mol(mol)
+
+# Dataframe manipulation
+df = dm.data.freesolv()
+mols = dm.from_df(df)
+
+# 2D viz
+legends = [dm.to_smiles(mol) for mol in mols[:10]]
+dm.viz.to_image(mols[:10], legends=legends)
+
+# Generate conformers
+smiles = "O=C(C)Oc1ccccc1C(=O)O"
+mol = dm.to_mol(smiles)
+mol_with_conformers = dm.conformers.generate(mol)
+
+# 3D viz (using nglview)
+dm.viz.conformers(mol, n_confs=10)
+
+# Compute SASA from conformers
+sasa = dm.conformers.sasa(mol_with_conformers)
+
+# Easy IO
+mols = dm.read_sdf("s3://my-awesome-data-lake/smiles.sdf", as_df=False)
+dm.to_sdf(mols, "gs://data-bucket/smiles.sdf")`;
 
 const features = [
   {
@@ -54,7 +95,7 @@ export default function Home() {
                 The Cheminformatics Toolkit for ML Scientists
               </h1>
               <p className="mt-6 text-center text-lg leading-8 text-gray-800">
-                Datamol is an elegant, RDKit-powered python library optimized
+                Datamol is an elegant, RDKit-powered Python library optimized
                 for molecular machine learning workflows
               </p>
               <div className="mt-12 flex justify-center gap-x-4">
@@ -85,64 +126,148 @@ export default function Home() {
                 </a>
               </div>
               <div className="mt-16">
-                <SyntaxHighlighter
-                  language="bash"
-                  style={dracula}
-                  customStyle={{
-                    padding: '20px',
-                    borderRadius: '0.25rem'
-                  }}
-                >
-                  {`# All you need is:
-$ mamba install -c conda-forge datamol`}
-                </SyntaxHighlighter>
+                <div className="relative">
+                  <CopyToClipboard text={firstBlockCodeContent}>
+                    <button className="group absolute top-0 right-0 ml-2 hidden h-9 w-9 items-center justify-center text-white sm:flex">
+                      <svg
+                        className="h-8 w-8 stroke-slate-400 transition group-hover:rotate-[-4deg] group-hover:stroke-slate-300"
+                        fill="none"
+                        viewBox="0 0 32 32"
+                        xmlns="http://www.w3.org/2000/svg"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M12.9975 10.7499L11.7475 10.7499C10.6429 10.7499 9.74747 11.6453 9.74747 12.7499L9.74747 21.2499C9.74747 22.3544 10.6429 23.2499 11.7475 23.2499L20.2475 23.2499C21.352 23.2499 22.2475 22.3544 22.2475 21.2499L22.2475 12.7499C22.2475 11.6453 21.352 10.7499 20.2475 10.7499L18.9975 10.7499"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M17.9975 12.2499L13.9975 12.2499C13.4452 12.2499 12.9975 11.8022 12.9975 11.2499L12.9975 9.74988C12.9975 9.19759 13.4452 8.74988 13.9975 8.74988L17.9975 8.74988C18.5498 8.74988 18.9975 9.19759 18.9975 9.74988L18.9975 11.2499C18.9975 11.8022 18.5498 12.2499 17.9975 12.2499Z"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M13.7475 16.2499L18.2475 16.2499"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M13.7475 19.2499L18.2475 19.2499"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <g className="opacity-0">
+                          <path
+                            d="M15.9975 5.99988L15.9975 3.99988"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M19.9975 5.99988L20.9975 4.99988"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M11.9975 5.99988L10.9975 4.99988"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </g>
+                      </svg>
+                    </button>
+                  </CopyToClipboard>
+                  <SyntaxHighlighter
+                    language="bash"
+                    style={dracula}
+                    customStyle={{
+                      padding: '20px',
+                      borderRadius: '0.25rem'
+                    }}
+                  >
+                    {firstBlockCodeContent}
+                  </SyntaxHighlighter>
+                </div>
               </div>
               <div className="mt-8">
-                <SyntaxHighlighter
-                  language="python"
-                  style={dracula}
-                  customStyle={{
-                    padding: '20px',
-                    borderRadius: '0.25rem'
-                  }}
-                >
-                  {`import datamol as dm
-
-# Common functions
-mol = dm.to_mol("O=C(C)Oc1ccccc1C(=O)O", sanitize=True)
-fp = dm.to_fp(mol)
-selfies = dm.to_selfies(mol)
-inchi = dm.to_inchi(mol)
-
-# Standardize and sanitize
-mol = dm.to_mol("O=C(C)Oc1ccccc1C(=O)O")
-mol = dm.fix_mol(mol)
-mol = dm.sanitize_mol(mol)
-mol = dm.standardized_mol(mol)
-
-# Dataframe manipulation
-df = dm.data.freesolv()
-mols = dm.from_df(df)
-
-# 2D viz
-legends = [dm.to_smiles(mol) for mol in mols[:10]]
-dm.viz.to_image(mols[:10], legends=legends)
-
-# Generate conformers
-smiles = "O=C(C)Oc1ccccc1C(=O)O"
-mol = dm.to_mol(smiles)
-mol_with_conformers = dm.conformers.generate(mol)
-
-# 3D viz (using nglview)
-dm.viz.conformers(mol, n_confs=10)
-
-# Compute SASA from conformers
-sasa = dm.conformers.sasa(mol_with_conformers)
-
-# Easy IO
-mols = dm.read_sdf("s3://my-awesome-data-lake/smiles.sdf", as_df=False)
-dm.to_sdf(mols, "gs://data-bucket/smiles.sdf")`}
-                </SyntaxHighlighter>
+                <div className="relative">
+                  <CopyToClipboard text={secondBlockCodeContent}>
+                    <button className="group absolute top-0 right-0 ml-2 hidden h-9 w-9 items-center justify-center text-white sm:flex">
+                      <svg
+                        className="h-8 w-8 stroke-slate-400 transition group-hover:rotate-[-4deg] group-hover:stroke-slate-300"
+                        fill="none"
+                        viewBox="0 0 32 32"
+                        xmlns="http://www.w3.org/2000/svg"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M12.9975 10.7499L11.7475 10.7499C10.6429 10.7499 9.74747 11.6453 9.74747 12.7499L9.74747 21.2499C9.74747 22.3544 10.6429 23.2499 11.7475 23.2499L20.2475 23.2499C21.352 23.2499 22.2475 22.3544 22.2475 21.2499L22.2475 12.7499C22.2475 11.6453 21.352 10.7499 20.2475 10.7499L18.9975 10.7499"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M17.9975 12.2499L13.9975 12.2499C13.4452 12.2499 12.9975 11.8022 12.9975 11.2499L12.9975 9.74988C12.9975 9.19759 13.4452 8.74988 13.9975 8.74988L17.9975 8.74988C18.5498 8.74988 18.9975 9.19759 18.9975 9.74988L18.9975 11.2499C18.9975 11.8022 18.5498 12.2499 17.9975 12.2499Z"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M13.7475 16.2499L18.2475 16.2499"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M13.7475 19.2499L18.2475 19.2499"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <g className="opacity-0">
+                          <path
+                            d="M15.9975 5.99988L15.9975 3.99988"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M19.9975 5.99988L20.9975 4.99988"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M11.9975 5.99988L10.9975 4.99988"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </g>
+                      </svg>
+                    </button>
+                  </CopyToClipboard>
+                  <SyntaxHighlighter
+                    language="python"
+                    style={dracula}
+                    customStyle={{
+                      padding: '20px',
+                      borderRadius: '0.25rem'
+                    }}
+                  >
+                    {secondBlockCodeContent}
+                  </SyntaxHighlighter>
+                </div>
               </div>
             </div>
             <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
