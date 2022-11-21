@@ -12,16 +12,16 @@ export default function Home() {
       </Head>
 
       <div className="relative mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:px-8">
-        <div className="absolute top-0 bottom-0 left-3/4 hidden w-screen bg-gray-50 lg:block" />
+        <div className="absolute top-12 bottom-0 left-3/4 hidden w-screen bg-gray-50 lg:block" />
         <div className="mx-auto max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8">
           <div>
-            <h2 className="text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl md:mt-48">
+            <h2 className="px-6 text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:px-0 sm:text-left sm:text-4xl md:mt-48">
               The Largest pre-trained model for rich molecular featurization
             </h2>
           </div>
         </div>
         <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
-          <div className="relative md:-mt-72 lg:col-start-2 lg:row-start-1">
+          <div className="relative md:-mt-60 lg:col-start-2 lg:row-start-1">
             <svg
               className="absolute top-0 right-0 -mt-20 -mr-20 hidden lg:block"
               width={404}
@@ -84,7 +84,7 @@ export default function Home() {
           </div>
           <div className="mt-8 lg:mt-0">
             <div className="mx-auto max-w-prose text-base lg:max-w-none">
-              <p className="text-lg text-gray-500">
+              <p className="text-center text-lg text-gray-500 sm:text-left">
                 Stop worrying about molecular featurization and focus on machine
                 learning. Use the world's largest pre-trained molecular
                 featurizer to produce SOTA results in molecular property
@@ -92,7 +92,7 @@ export default function Home() {
               </p>
             </div>
             <div className="mt-8 sm:mx-auto sm:max-w-lg sm:text-center lg:mx-0 lg:text-left">
-              <p className="text-base font-medium text-gray-900">
+              <p className="text-center text-base font-medium text-gray-900 sm:text-left">
                 Sign up to for early access.
               </p>
               <form action="#" method="POST" className="mt-3 sm:flex">
