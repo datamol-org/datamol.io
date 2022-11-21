@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState, PropsWithChildren } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Toaster } from 'react-hot-toast';
 import * as constants from '../support/constants';
 import Footer from './Footer';
 
@@ -213,6 +214,8 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
         </main>
 
         <Footer />
+
+        <Toaster position="botton-left" />
       </div>
     </>
   );

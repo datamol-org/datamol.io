@@ -7,6 +7,7 @@ import {
   ScaleIcon
 } from '@heroicons/react/24/outline';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import toast from 'react-hot-toast';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import bash from 'react-syntax-highlighter/dist/cjs/languages/prism/bash';
 import python from 'react-syntax-highlighter/dist/cjs/languages/prism/python';
@@ -127,7 +128,10 @@ export default function Home() {
               </div>
               <div className="mt-16">
                 <div className="relative">
-                  <CopyToClipboard text={firstBlockCodeContent}>
+                  <CopyToClipboard
+                    text={firstBlockCodeContent}
+                    onCopy={() => toast.success('Copied')}
+                  >
                     <button className="group absolute top-0 right-0 ml-2 hidden h-9 w-9 items-center justify-center text-white sm:flex">
                       <svg
                         className="h-8 w-8 stroke-slate-400 transition group-hover:rotate-[-4deg] group-hover:stroke-slate-300"
@@ -199,7 +203,10 @@ export default function Home() {
               </div>
               <div className="mt-8">
                 <div className="relative">
-                  <CopyToClipboard text={secondBlockCodeContent}>
+                  <CopyToClipboard
+                    text={secondBlockCodeContent}
+                    onCopy={() => toast.success('Copied')}
+                  >
                     <button className="group absolute top-0 right-0 ml-2 hidden h-9 w-9 items-center justify-center text-white sm:flex">
                       <svg
                         className="h-8 w-8 stroke-slate-400 transition group-hover:rotate-[-4deg] group-hover:stroke-slate-300"

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Head from 'next/head';
 import { CheckCircleIcon } from '@heroicons/react/24/outline';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 // Config variables
 const SPREADSHEET_ID: any = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -188,8 +188,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      <Toaster />
     </>
   );
 }
