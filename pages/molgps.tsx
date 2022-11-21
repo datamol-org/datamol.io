@@ -1,6 +1,56 @@
+import { useState } from 'react';
 import Head from 'next/head';
+import { CheckCircleIcon } from '@heroicons/react/24/outline';
+import { GoogleSpreadsheet } from 'google-spreadsheet';
+
+// Config variables
+const SPREADSHEET_ID: any = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
+const SHEET_ID: any = process.env.NEXT_PUBLIC_SHEET_ID;
+const GOOGLE_CLIENT_EMAIL: any = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
+const GOOGLE_SERVICE_PRIVATE_KEY: any =
+  process.env.NEXT_PUBLIC_GOOGLE_SERVICE_PRIVATE_KEY;
+
+// GoogleSpreadsheet Initialize
+const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
+
+// Append Function
+const appendSpreadsheet = async (row: any) => {
+  try {
+    await doc.useServiceAccountAuth({
+      client_email: GOOGLE_CLIENT_EMAIL,
+      private_key: GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n')
+    });
+    // loads document properties and worksheets
+    await doc.loadInfo();
+
+    const sheet = doc.sheetsById[SHEET_ID];
+    await sheet.addRow(row);
+  } catch (e) {
+    console.error('Error: ', e);
+    // toast.error({
+    //   message: 'An error occured while subscribing',
+    // });
+  }
+};
 
 export default function Home() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [hasBeenAddedToTheWaitingList, setHasBeenAddedToTheWaitingList] =
+    useState(false);
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+
+    setIsSubmitting(true);
+
+    appendSpreadsheet({ Email: email });
+
+    setEmail('');
+    setIsSubmitting(false);
+    setHasBeenAddedToTheWaitingList(true);
+  };
+
   return (
     <>
       <Head>
@@ -59,27 +109,64 @@ export default function Home() {
               </p>
             </div>
             <div className="mt-8 sm:mx-auto sm:max-w-lg sm:text-center lg:mx-0 lg:text-left">
-              <p className="text-center text-base font-medium text-gray-900 sm:text-left">
-                Sign up to for early access.
-              </p>
-              <form action="#" method="POST" className="mt-3 sm:flex">
-                <label htmlFor="email" className="sr-only">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  className="block w-full rounded-md border border-gray-300 px-5 py-3 text-base placeholder-gray-500 shadow-sm outline-none focus:border-brand-500 focus:ring-brand-500 sm:flex-1"
-                  placeholder="Enter your email"
-                />
-                <button
-                  type="submit"
-                  className="mt-3 w-full rounded-md border border-transparent bg-gray-800 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:inline-flex sm:w-auto sm:flex-shrink-0 sm:items-center"
-                >
-                  Get Early Access
-                </button>
-              </form>
+              {!hasBeenAddedToTheWaitingList && (
+                <>
+                  <h4 className="text-center text-base font-medium text-gray-900 sm:text-left">
+                    Sign up to for early access.
+                  </h4>
+                  <form onSubmit={handleSubmit} className="mt-3 sm:flex">
+                    <label htmlFor="email" className="sr-only">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="block w-full rounded-md border border-gray-300 px-5 py-3 text-base placeholder-gray-500 shadow-sm outline-none focus:border-brand-500 focus:ring-brand-500 sm:flex-1"
+                      placeholder="Enter your email"
+                    />
+                    <button
+                      type="submit"
+                      className="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-gray-800 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:inline-flex sm:w-auto sm:flex-shrink-0 sm:items-center"
+                    >
+                      {isSubmitting && (
+                        <svg
+                          className="mr-3 -ml-1 h-5 w-5 animate-spin text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
+                        </svg>
+                      )}
+                      {isSubmitting ? 'Processing' : 'Get Early Access'}
+                    </button>
+                  </form>
+                </>
+              )}
+              {hasBeenAddedToTheWaitingList && (
+                <p className="flex items-center pt-3 font-semibold text-brand-500">
+                  <CheckCircleIcon className="h-8 w-8" aria-hidden="true" />
+                  <span className="ml-2">
+                    Thanks, you've been added to the waiting list 🎉
+                  </span>
+                </p>
+              )}
             </div>
           </div>
         </div>
