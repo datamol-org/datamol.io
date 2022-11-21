@@ -71,8 +71,9 @@ export default function Home() {
         <div className="mx-auto max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8">
           <div>
             <h2 className="px-6 text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:px-0 sm:text-left sm:text-4xl md:mt-48">
-              The largest pre-trained model for molecular featurization and
-              property prediction
+              The largest pre-trained model <br className="hidden sm:block" />
+              for molecular featurization <br className="hidden sm:block" />
+              and property prediction
             </h2>
           </div>
         </div>
@@ -85,7 +86,12 @@ export default function Home() {
                     <span className="mr-4">
                       🥇 First Place Winner of the 2022 OGB Challenge
                     </span>
-                    <a href="#" className="font-semibold text-brand-600">
+                    <a
+                      href="https://m2d2.io/blog/posts/valence-and-collaborators-place-first-in-open-graph-benchmark-large-scale-challenge-2/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-semibold text-brand-600"
+                    >
                       <span className="absolute inset-0" aria-hidden="true" />
                       Read more <span aria-hidden="true">&rarr;</span>
                     </a>
@@ -94,7 +100,11 @@ export default function Home() {
               </div>
               <figure>
                 <div className="aspect-w-12 aspect-h-7 lg:aspect-none">
-                  <a href="#" target="_blank" rel="noreferrer">
+                  <a
+                    href="https://m2d2.io/blog/posts/valence-and-collaborators-place-first-in-open-graph-benchmark-large-scale-challenge-2/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img
                       className="rounded-lg object-cover object-center shadow-lg"
                       src="/images/ogb-paper-2022.png"
