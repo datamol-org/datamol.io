@@ -71,7 +71,8 @@ export default function Home() {
         <div className="mx-auto max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8">
           <div>
             <h2 className="px-6 text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:px-0 sm:text-left sm:text-4xl md:mt-48">
-              The largest pre-trained model for rich molecular featurization
+              The largest pre-trained model for molecular featurization and
+              property prediction
             </h2>
           </div>
         </div>
@@ -109,17 +110,16 @@ export default function Home() {
           <div className="mt-8 lg:mt-0">
             <div className="mx-auto max-w-prose text-base lg:max-w-none">
               <p className="text-center text-lg text-gray-700 sm:text-left">
-                Stop worrying about molecular featurization and focus on machine
-                learning. Use the world&apos;s largest pre-trained molecular
-                featurizer to produce SOTA results in molecular property
-                prediction.
+                Stop worrying about featurization and focus on modelling. Access
+                and deploy category-leading pre-trained models, built on GPS++,
+                this year&apos;s winning OGB architecture, using MolGPS.
               </p>
             </div>
             <div className="mt-8 sm:mx-auto sm:max-w-lg sm:text-center lg:mx-0 lg:text-left">
               {!hasBeenAddedToTheWaitingList && (
                 <>
                   <h4 className="text-center text-base font-medium text-gray-900 sm:text-left">
-                    Sign up for early access.
+                    Sign up for early access to MolGPS below
                   </h4>
                   <form onSubmit={handleSubmit} className="mt-3 sm:flex">
                     <label htmlFor="email" className="sr-only">
