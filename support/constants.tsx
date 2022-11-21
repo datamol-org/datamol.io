@@ -1,5 +1,6 @@
 export const navigation = {
   main: [
+    { name: 'Datamol', href: '/' },
     {
       name: 'The Story',
       href: 'https://m2d2.io/blog/posts/open-sourcing-datamol-a-python-library-to-intuitively-manipulate-molecules/',
