@@ -79,12 +79,12 @@ export default function Home() {
           <div className="relative md:-mt-60 lg:col-start-2 lg:row-start-1">
             <div className="relative mx-auto max-w-prose text-base lg:max-w-none">
               <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-                <div className="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                  <span className="text-gray-600">
+                <div className="relative  overflow-hidden rounded-full bg-brand-500 py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                  <span className="text-gray-50">
                     <span className="mr-4">
-                      Winner of the 2022 OGB Challenge.
+                      First Place &middot; Winner of the 2022 OGB Challenge
                     </span>
-                    <a href="#" className="font-semibold text-brand-600">
+                    <a href="#" className="font-semibold text-brand-50">
                       <span className="absolute inset-0" aria-hidden="true" />
                       Read more <span aria-hidden="true">&rarr;</span>
                     </a>
