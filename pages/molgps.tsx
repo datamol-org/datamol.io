@@ -110,7 +110,7 @@ export default function Home() {
             <div className="mx-auto max-w-prose text-base lg:max-w-none">
               <p className="text-center text-lg text-gray-500 sm:text-left">
                 Stop worrying about molecular featurization and focus on machine
-                learning. Use the world's largest pre-trained molecular
+                learning. Use the world&apos;s largest pre-trained molecular
                 featurizer to produce SOTA results in molecular property
                 prediction.
               </p>
