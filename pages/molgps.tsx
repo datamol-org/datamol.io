@@ -93,13 +93,15 @@ export default function Home() {
               </div>
               <figure>
                 <div className="aspect-w-12 aspect-h-7 lg:aspect-none">
-                  <img
-                    className="rounded-lg object-cover object-center shadow-lg"
-                    src="/images/ogb-paper.png"
-                    alt="Winner of the 2022 OGB Challenge"
-                    width={1184}
-                    height={1376}
-                  />
+                  <a href="#" target="_blank">
+                    <img
+                      className="rounded-lg object-cover object-center shadow-lg"
+                      src="/images/ogb-paper.png"
+                      alt="Winner of the 2022 OGB Challenge"
+                      width={1184}
+                      height={1376}
+                    />
+                  </a>
                 </div>
               </figure>
             </div>
