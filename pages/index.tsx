@@ -50,10 +50,10 @@ export default function Home() {
         <div className="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
           <div>
             <div>
-              <h1 className="text-center text-4xl font-bold tracking-tight text-gray-800 sm:text-6xl">
+              <h1 className="text-center text-4xl font-bold tracking-tight text-gray-700 sm:text-6xl">
                 The Cheminformatics Toolkit for ML Scientists
               </h1>
-              <p className="mt-6 text-center text-lg leading-8 text-gray-700">
+              <p className="mt-6 text-center text-lg leading-8 text-gray-800">
                 Datamol is an elegant, RDKit-powered python library optimized
                 for molecular machine learning workflows
               </p>
