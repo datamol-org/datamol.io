@@ -139,7 +139,8 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
                 <div className="flex h-9 items-center justify-between">
                   <div className="flex">
                     <Link
-                      href="#"
+                      href="/"
+                      onClick={() => setMobileMenuOpen(false)}
                       className="-m-1.5 flex items-center justify-center space-x-2 p-1.5"
                     >
                       <img className="h-8" src="/images/logo.svg" alt="" />
@@ -177,6 +178,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
                           <Link
                             key={item.name}
                             href={item.href}
+                            onClick={() => setMobileMenuOpen(false)}
                             className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10"
                           >
                             {item.name}
