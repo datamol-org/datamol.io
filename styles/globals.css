@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+#hero {
+  background: linear-gradient(75deg, #fefaf6 0, #fce6d2 100%);
+  background-color: black;
+}
+
 @font-face {
   font-family: 'Fkgrotesk';
   src: url('/fonts/fk-grotesk/6001b7961b444272e0c5b9f5_FKGrotesk-LightItalic.otf')

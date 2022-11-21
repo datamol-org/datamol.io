@@ -5,7 +5,7 @@ export default function Footer() {
   const { navigation } = constants;
 
   return (
-    <footer className="mt-20 bg-white sm:mt-24">
+    <footer className="bg-white pt-20 sm:pt-24">
       <div className="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
         <nav
           className="-mx-5 -my-2 flex flex-wrap justify-center"
