@@ -400,7 +400,7 @@ export default function Home() {
 
               <div className="mt-20 max-w-lg sm:mx-auto md:max-w-2xl">
                 <div className="grid grid-cols-2 items-center justify-center gap-8 md:grid-cols-6 lg:grid-cols-4">
-                  <div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+                  <div className="col-span-1 flex animate-dance-slow justify-center animation-delay-100 md:col-span-2 lg:col-span-1">
                     <a href="https://github.com/rdkit/rdkit" target="_blank">
                       <img
                         width="128"
@@ -410,7 +410,7 @@ export default function Home() {
                       />
                     </a>
                   </div>
-                  <div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+                  <div className="col-span-1 flex animate-dance-slow justify-center animation-delay-200 md:col-span-2 lg:col-span-1">
                     <a href="https://pandas.pydata.org/" target="_blank">
                       <img
                         width="128"
@@ -420,7 +420,7 @@ export default function Home() {
                       />
                     </a>
                   </div>
-                  <div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+                  <div className="col-span-1 flex animate-dance-slow justify-center animation-delay-500 md:col-span-2 lg:col-span-1">
                     <a href="https://numpy.org/" target="_blank">
                       <img
                         width="128"
@@ -430,7 +430,7 @@ export default function Home() {
                       />
                     </a>
                   </div>
-                  <div className="col-span-1 flex justify-center md:col-span-3 lg:col-span-1">
+                  <div className="col-span-1 flex animate-dance-slow justify-center animation-delay-700 md:col-span-3 lg:col-span-1">
                     <a
                       href="https://matplotlib.org/stable/index.html"
                       target="_blank"

@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const plugin = require('tailwindcss/plugin');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -10,6 +11,16 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Fkgrotesk', ...defaultTheme.fontFamily.sans]
+      },
+      keyframes: {
+        dance: {
+          '0%': { transform: 'translate(0)' },
+          '50%': { transform: 'translateY(3px)' },
+          '100%': { transform: 'translate(0)' }
+        }
+      },
+      animation: {
+        'dance-slow': 'dance 2.5s ease-in-out infinite'
       },
       colors: {
         brand: {
@@ -28,5 +39,20 @@ module.exports = {
       }
     }
   },
-  plugins: []
+  plugins: [
+    plugin(({ matchUtilities, theme }) => {
+      matchUtilities(
+        {
+          'animation-delay': (value) => {
+            return {
+              'animation-delay': value
+            };
+          }
+        },
+        {
+          values: theme('transitionDelay')
+        }
+      );
+    })
+  ]
 };
