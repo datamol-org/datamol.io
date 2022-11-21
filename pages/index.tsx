@@ -162,13 +162,14 @@ export default function Home() {
               aria-label="Global"
             >
               <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
-                <a href="#" className="-m-1.5 p-1.5">
-                  <span className="sr-only">Datamol</span>
-                  <img
-                    className="h-8"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=brand&shade=600"
-                    alt=""
-                  />
+                <a
+                  href="/"
+                  className="-m-1.5 flex items-center justify-center space-x-2 p-1.5"
+                >
+                  <img className="h-8" src="/images/logo.svg" alt="" />
+                  <span className="text-xl font-semibold text-gray-700">
+                    Datamol
+                  </span>
                 </a>
               </div>
               <div className="flex lg:hidden">
@@ -223,13 +224,14 @@ export default function Home() {
               >
                 <div className="flex h-9 items-center justify-between">
                   <div className="flex">
-                    <a href="#" className="-m-1.5 p-1.5">
-                      <span className="sr-only">Your Company</span>
-                      <img
-                        className="h-8"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=brand&shade=600"
-                        alt=""
-                      />
+                    <a
+                      href="#"
+                      className="-m-1.5 flex items-center justify-center space-x-2 p-1.5"
+                    >
+                      <img className="h-8" src="/images/logo.svg" alt="" />
+                      <span className="text-xl font-semibold text-gray-700">
+                        Datamol
+                      </span>
                     </a>
                   </div>
                   <div className="flex">
@@ -260,6 +262,7 @@ export default function Home() {
                       {footerNavigation.social.map((item) => (
                         <a
                           href={item.href}
+                          key={item.name}
                           target="_blank"
                           className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-6 text-gray-900 hover:bg-gray-400/10"
                         >
