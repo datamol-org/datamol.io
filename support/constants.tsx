@@ -6,8 +6,8 @@ export const navigation = {
       href: 'https://m2d2.io/blog/posts/open-sourcing-datamol-a-python-library-to-intuitively-manipulate-molecules/',
       external: true
     },
-    { name: 'Docs', href: 'https://doc.datamol.io', external: true }
-    // { name: 'MolGPS', href: '/molgps' }
+    { name: 'Docs', href: 'https://doc.datamol.io', external: true },
+    { name: 'MolGPS', href: '/molgps' }
   ],
   social: [
     {
