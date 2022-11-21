@@ -11,7 +11,7 @@ export default function Footer() {
           className="-mx-5 -my-2 flex flex-wrap justify-center"
           aria-label="Footer"
         >
-          {navigation.main.map((item) => (
+          {navigation.main.slice(1).map((item) => (
             <div key={item.name} className="px-5 py-2">
               {item.external ? (
                 <a
