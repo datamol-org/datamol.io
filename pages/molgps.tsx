@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { CameraIcon } from '@heroicons/react/20/solid';
 
 export default function Home() {
   return (
@@ -16,7 +15,7 @@ export default function Home() {
         <div className="absolute top-0 bottom-0 left-3/4 hidden w-screen bg-gray-50 lg:block" />
         <div className="mx-auto max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8">
           <div>
-            <h2 className="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="mt-48 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">
               The Largest pre-trained model for rich molecular featurization
             </h2>
           </div>
@@ -80,13 +79,6 @@ export default function Home() {
                     height={1376}
                   />
                 </div>
-                <figcaption className="mt-3 flex text-sm text-gray-500">
-                  <CameraIcon
-                    className="h-5 w-5 flex-none text-gray-400"
-                    aria-hidden="true"
-                  />
-                  <span className="ml-2">Photograph by Marcus O’Leary</span>
-                </figcaption>
               </figure>
             </div>
           </div>
