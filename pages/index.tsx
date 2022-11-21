@@ -13,22 +13,15 @@ import {
   XMarkIcon
 } from '@heroicons/react/24/outline';
 
-const navigation = [
-  {
-    name: 'The Story',
-    href: 'https://m2d2.io/blog/posts/open-sourcing-datamol-a-python-library-to-intuitively-manipulate-molecules/',
-    external: true
-  },
-  { name: 'DatamolKit', href: '/' },
-  { name: 'Docs', href: 'https://doc.datamol.io', external: true },
-  { name: 'MolGPS', href: '/datamol-fingerprints' }
-];
-
-const footerNavigation = {
+const navigation = {
   main: [
-    { name: 'The Story', href: '#' },
-    { name: 'Docs', href: '#' },
-    { name: 'MolGPS', href: '#' }
+    {
+      name: 'The Story',
+      href: 'https://m2d2.io/blog/posts/open-sourcing-datamol-a-python-library-to-intuitively-manipulate-molecules/',
+      external: true
+    },
+    { name: 'Docs', href: 'https://doc.datamol.io', external: true },
+    { name: 'MolGPS', href: '/datamol-fingerprints' }
   ],
   social: [
     {
@@ -183,7 +176,7 @@ export default function Home() {
                 </button>
               </div>
               <div className="hidden lg:flex lg:min-w-max lg:flex-1 lg:justify-center lg:gap-x-12">
-                {navigation.map((item) =>
+                {navigation.main.map((item) =>
                   item.external ? (
                     <a
                       key={item.name}
@@ -205,7 +198,7 @@ export default function Home() {
                 )}
               </div>
               <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
-                {footerNavigation.social.map((item) => (
+                {navigation.social.map((item) => (
                   <a
                     href={item.href}
                     key={item.name}
@@ -246,18 +239,29 @@ export default function Home() {
                 <div className="mt-6 flow-root">
                   <div className="-my-6 divide-y divide-gray-500/10">
                     <div className="space-y-2 py-6 text-center">
-                      {navigation.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10"
-                        >
-                          {item.name}
-                        </a>
-                      ))}
+                      {navigation.main.map((item) =>
+                        item.external ? (
+                          <a
+                            key={item.name}
+                            href={item.href}
+                            target="_blank"
+                            className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10"
+                          >
+                            {item.name}
+                          </a>
+                        ) : (
+                          <Link
+                            key={item.name}
+                            href={item.href}
+                            className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10"
+                          >
+                            {item.name}
+                          </Link>
+                        )
+                      )}
                     </div>
                     <div className="py-6 text-center">
-                      {footerNavigation.social.map((item) => (
+                      {navigation.social.map((item) => (
                         <a
                           href={item.href}
                           key={item.name}
@@ -455,19 +459,29 @@ export default function Home() {
               className="-mx-5 -my-2 flex flex-wrap justify-center"
               aria-label="Footer"
             >
-              {footerNavigation.main.map((item) => (
+              {navigation.main.map((item) => (
                 <div key={item.name} className="px-5 py-2">
-                  <a
-                    href={item.href}
-                    className="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    {item.name}
-                  </a>
+                  {item.external ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      className="text-base text-gray-500 hover:text-gray-900"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="text-base text-gray-500 hover:text-gray-900"
+                    >
+                      {item.name}
+                    </Link>
+                  )}
                 </div>
               ))}
             </nav>
             <div className="mt-8 flex justify-center space-x-6">
-              {footerNavigation.social.map((item) => (
+              {navigation.social.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
