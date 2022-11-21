@@ -15,13 +15,13 @@ export default function Home() {
         <div className="absolute top-0 bottom-0 left-3/4 hidden w-screen bg-gray-50 lg:block" />
         <div className="mx-auto max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8">
           <div>
-            <h2 className="mt-48 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl md:mt-48">
               The Largest pre-trained model for rich molecular featurization
             </h2>
           </div>
         </div>
         <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
-          <div className="relative lg:col-start-2 lg:row-start-1">
+          <div className="relative md:-mt-72 lg:col-start-2 lg:row-start-1">
             <svg
               className="absolute top-0 right-0 -mt-20 -mr-20 hidden lg:block"
               width={404}
@@ -73,8 +73,8 @@ export default function Home() {
                 <div className="aspect-w-12 aspect-h-7 lg:aspect-none">
                   <img
                     className="rounded-lg object-cover object-center shadow-lg"
-                    src="https://images.unsplash.com/photo-1546913199-55e06682967e?ixlib=rb-1.2.1&auto=format&fit=crop&crop=focalpoint&fp-x=.735&fp-y=.55&w=1184&h=1376&q=80"
-                    alt="Whitney leaning against a railing on a downtown street"
+                    src="/images/ogb-paper.png"
+                    alt="Winner of the 2022 OGB Challenge"
                     width={1184}
                     height={1376}
                   />
@@ -90,6 +90,29 @@ export default function Home() {
                 featurizer to produce SOTA results in molecular property
                 prediction.
               </p>
+            </div>
+            <div className="mt-8 sm:mx-auto sm:max-w-lg sm:text-center lg:mx-0 lg:text-left">
+              <p className="text-base font-medium text-gray-900">
+                Sign up to for early access.
+              </p>
+              <form action="#" method="POST" className="mt-3 sm:flex">
+                <label htmlFor="email" className="sr-only">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  className="block w-full rounded-md border border-gray-300 px-5 py-3 text-base placeholder-gray-500 shadow-sm outline-none focus:border-brand-500 focus:ring-brand-500 sm:flex-1"
+                  placeholder="Enter your email"
+                />
+                <button
+                  type="submit"
+                  className="mt-3 w-full rounded-md border border-transparent bg-gray-800 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:inline-flex sm:w-auto sm:flex-shrink-0 sm:items-center"
+                >
+                  Get Early Access
+                </button>
+              </form>
             </div>
           </div>
         </div>

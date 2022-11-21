@@ -199,7 +199,12 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
             </Dialog>
           </div>
         </div>
-        <main role="main">{children}</main>
+        <main
+          role="main"
+          className="selection:bg-brand-500 selection:text-white"
+        >
+          {children}
+        </main>
 
         <Footer />
       </div>
