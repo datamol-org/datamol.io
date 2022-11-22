@@ -117,14 +117,14 @@ export default function Home() {
                       <button className="group absolute top-0 right-0 ml-2 hidden h-9 w-9 items-center justify-center text-white sm:flex">
                         <Transition
                           show={codeBlocksCopied[index]}
-                          enter="transition-opacity duration-500"
-                          enterFrom="opacity-0"
-                          enterTo="opacity-100"
-                          leave="transition-opacity duration-500"
-                          leaveFrom="opacity-100"
-                          leaveTo="opacity-0"
+                          enter="ease-out duration-200 transition"
+                          enterFrom="opacity-0 transform scale-0 translate-y-0"
+                          enterTo="opacity-100 transform origin-bottom -translate-y-4 translate-x-4"
+                          leave="transition ease-in duration-100"
+                          leaveFrom="opacity-100 transform scale-100 translate-y-0 opacity-100"
+                          leaveTo="opacity-0 scale-0 translate-y-0"
                         >
-                          <span className="absolute inset-x-0 bottom-full mb-2.5 flex origin-bottom translate-y-0 scale-100 transform justify-center opacity-100 transition duration-500 ease-out">
+                          <span className="absolute inset-x-0 bottom-full mb-2.5 flex items-center justify-center">
                             <span className="rounded-md bg-gray-900 py-1 px-3 text-[0.625rem] font-semibold uppercase leading-4 tracking-wide text-white drop-shadow-md filter">
                               <svg
                                 aria-hidden="true"
