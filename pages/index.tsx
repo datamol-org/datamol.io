@@ -16,50 +16,13 @@ import bash from 'react-syntax-highlighter/dist/cjs/languages/prism/bash';
 import python from 'react-syntax-highlighter/dist/cjs/languages/prism/python';
 import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx';
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import * as constants from '../support/constants';
 
 SyntaxHighlighter.registerLanguage('bash', bash);
 SyntaxHighlighter.registerLanguage('python', python);
 SyntaxHighlighter.registerLanguage('jsx', jsx);
 
-const firstCodeBlockContent = `# All you need is:
-$ mamba install -c conda-forge datamol`;
-
-const secondCodeBlockContent = `import datamol as dm
-
-# Common functions
-mol = dm.to_mol("O=C(C)Oc1ccccc1C(=O)O", sanitize=True)
-fp = dm.to_fp(mol)
-selfies = dm.to_selfies(mol)
-inchi = dm.to_inchi(mol)
-
-# Standardize and sanitize
-mol = dm.to_mol("O=C(C)Oc1ccccc1C(=O)O")
-mol = dm.fix_mol(mol)
-mol = dm.sanitize_mol(mol)
-mol = dm.standardized_mol(mol)
-
-# Dataframe manipulation
-df = dm.data.freesolv()
-mols = dm.from_df(df)
-
-# 2D viz
-legends = [dm.to_smiles(mol) for mol in mols[:10]]
-dm.viz.to_image(mols[:10], legends=legends)
-
-# Generate conformers
-smiles = "O=C(C)Oc1ccccc1C(=O)O"
-mol = dm.to_mol(smiles)
-mol_with_conformers = dm.conformers.generate(mol)
-
-# 3D viz (using nglview)
-dm.viz.conformers(mol, n_confs=10)
-
-# Compute SASA from conformers
-sasa = dm.conformers.sasa(mol_with_conformers)
-
-# Easy IO
-mols = dm.read_sdf("s3://my-awesome-data-lake/smiles.sdf", as_df=False)
-dm.to_sdf(mols, "gs://data-bucket/smiles.sdf")`;
+const { codeBlocks } = constants;
 
 const features = [
   {
@@ -143,7 +106,7 @@ export default function Home() {
               <div className="mt-16">
                 <div className="relative">
                   <CopyToClipboard
-                    text="mamba install -c conda-forge datamol"
+                    text={codeBlocks[0].copyContent}
                     onCopy={() => {
                       setFirstCodeBlockCopied(true);
                       resetFirstCodeBlockCopied();
@@ -159,29 +122,25 @@ export default function Home() {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                       >
-                        <>
-                          <span className="absolute inset-x-0 bottom-full mb-2.5 flex origin-bottom translate-y-0 scale-100 transform justify-center opacity-100 transition duration-500 ease-out">
-                            <span className="rounded-md bg-gray-900 py-1 px-3 text-[0.625rem] font-semibold uppercase leading-4 tracking-wide text-white drop-shadow-md filter">
-                              <>
-                                <svg
-                                  aria-hidden="true"
-                                  width="16"
-                                  height="6"
-                                  viewBox="0 0 16 6"
-                                  className="absolute top-full left-1/2 -mt-px -ml-2 text-gray-900"
-                                >
-                                  <path
-                                    fill-rule="evenodd"
-                                    clip-rule="evenodd"
-                                    d="M15 0H1V1.00366V1.00366V1.00371H1.01672C2.72058 1.0147 4.24225 2.74704 5.42685 4.72928C6.42941 6.40691 9.57154 6.4069 10.5741 4.72926C11.7587 2.74703 13.2803 1.0147 14.9841 1.00371H15V0Z"
-                                    fill="currentColor"
-                                  ></path>
-                                </svg>
-                                Copied!
-                              </>
-                            </span>
+                        <span className="absolute inset-x-0 bottom-full mb-2.5 flex origin-bottom translate-y-0 scale-100 transform justify-center opacity-100 transition duration-500 ease-out">
+                          <span className="rounded-md bg-gray-900 py-1 px-3 text-[0.625rem] font-semibold uppercase leading-4 tracking-wide text-white drop-shadow-md filter">
+                            <svg
+                              aria-hidden="true"
+                              width="16"
+                              height="6"
+                              viewBox="0 0 16 6"
+                              className="absolute top-full left-1/2 -mt-px -ml-2 text-gray-900"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M15 0H1V1.00366V1.00366V1.00371H1.01672C2.72058 1.0147 4.24225 2.74704 5.42685 4.72928C6.42941 6.40691 9.57154 6.4069 10.5741 4.72926C11.7587 2.74703 13.2803 1.0147 14.9841 1.00371H15V0Z"
+                                fill="currentColor"
+                              ></path>
+                            </svg>
+                            Copied!
                           </span>
-                        </>
+                        </span>
                       </Transition>
                       <svg
                         className={clsx(
@@ -255,14 +214,14 @@ export default function Home() {
                       borderRadius: '0.25rem'
                     }}
                   >
-                    {firstCodeBlockContent}
+                    {codeBlocks[0].content}
                   </SyntaxHighlighter>
                 </div>
               </div>
               <div className="mt-8">
                 <div className="relative">
                   <CopyToClipboard
-                    text={secondCodeBlockContent}
+                    text={codeBlocks[1].copyContent}
                     onCopy={() => {
                       setSecondCodeBlockCopied(true);
                       resetSecondCodeBlockCopied();
@@ -278,29 +237,25 @@ export default function Home() {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                       >
-                        <>
-                          <span className="absolute inset-x-0 bottom-full mb-2.5 flex origin-bottom translate-y-0 scale-100 transform justify-center opacity-100 transition duration-500 ease-out">
-                            <span className="rounded-md bg-gray-900 py-1 px-3 text-[0.625rem] font-semibold uppercase leading-4 tracking-wide text-white drop-shadow-md filter">
-                              <>
-                                <svg
-                                  aria-hidden="true"
-                                  width="16"
-                                  height="6"
-                                  viewBox="0 0 16 6"
-                                  className="absolute top-full left-1/2 -mt-px -ml-2 text-gray-900"
-                                >
-                                  <path
-                                    fill-rule="evenodd"
-                                    clip-rule="evenodd"
-                                    d="M15 0H1V1.00366V1.00366V1.00371H1.01672C2.72058 1.0147 4.24225 2.74704 5.42685 4.72928C6.42941 6.40691 9.57154 6.4069 10.5741 4.72926C11.7587 2.74703 13.2803 1.0147 14.9841 1.00371H15V0Z"
-                                    fill="currentColor"
-                                  ></path>
-                                </svg>
-                                Copied!
-                              </>
-                            </span>
+                        <span className="absolute inset-x-0 bottom-full mb-2.5 flex origin-bottom translate-y-0 scale-100 transform justify-center opacity-100 transition duration-500 ease-out">
+                          <span className="rounded-md bg-gray-900 py-1 px-3 text-[0.625rem] font-semibold uppercase leading-4 tracking-wide text-white drop-shadow-md filter">
+                            <svg
+                              aria-hidden="true"
+                              width="16"
+                              height="6"
+                              viewBox="0 0 16 6"
+                              className="absolute top-full left-1/2 -mt-px -ml-2 text-gray-900"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M15 0H1V1.00366V1.00366V1.00371H1.01672C2.72058 1.0147 4.24225 2.74704 5.42685 4.72928C6.42941 6.40691 9.57154 6.4069 10.5741 4.72926C11.7587 2.74703 13.2803 1.0147 14.9841 1.00371H15V0Z"
+                                fill="currentColor"
+                              ></path>
+                            </svg>
+                            Copied!
                           </span>
-                        </>
+                        </span>
                       </Transition>
                       <svg
                         className={clsx(
@@ -376,7 +331,7 @@ export default function Home() {
                       borderRadius: '0.25rem'
                     }}
                   >
-                    {secondCodeBlockContent}
+                    {codeBlocks[1].content}
                   </SyntaxHighlighter>
                 </div>
               </div>

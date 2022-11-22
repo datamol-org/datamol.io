@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import * as constants from '../support/constants';
 
-export default function Footer() {
-  const { navigation } = constants;
+const { navigation } = constants;
 
+export default function Footer() {
   return (
     <footer className="bg-white pt-20 sm:pt-24">
       <div className="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
