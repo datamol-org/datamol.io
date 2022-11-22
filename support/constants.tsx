@@ -87,8 +87,13 @@ dm.to_sdf(mols, "gs://data-bucket/smiles.sdf")`;
 
 export const codeBlocks = [
   {
+    language: 'bash',
     content: datamolCondaInstall,
     copyContent: 'mamba install -c conda-forge datamol'
   },
-  { content: datamolPythonCode, copyContent: datamolPythonCode }
+  {
+    language: 'python',
+    content: datamolPythonCode,
+    copyContent: datamolPythonCode
+  }
 ];
