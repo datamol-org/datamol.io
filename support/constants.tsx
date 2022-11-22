@@ -45,9 +45,6 @@ export const navigation = {
   ]
 };
 
-const datamolCondaInstall: string = `# All you need is:
-$ mamba install -c conda-forge datamol`;
-
 const datamolPythonCode: string = `import datamol as dm
 
 # Common functions
@@ -88,7 +85,8 @@ dm.to_sdf(mols, "gs://data-bucket/smiles.sdf")`;
 export const codeBlocks = [
   {
     language: 'bash',
-    content: datamolCondaInstall,
+    content: `# All you need is:
+$ mamba install -c conda-forge datamol`,
     copyContent: 'mamba install -c conda-forge datamol'
   },
   {

@@ -106,7 +106,11 @@ export default function Home() {
                     <CopyToClipboard
                       text={codeBlock.copyContent}
                       onCopy={() => {
-                        setCodeBlocksCopied([index === 0, index === 1]);
+                        setCodeBlocksCopied(
+                          Array(codeBlocks.length)
+                            .fill(false)
+                            .map((_, i) => index === i)
+                        );
                         resetCodeBlocksCopied();
                       }}
                     >
