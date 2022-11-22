@@ -1,3 +1,8 @@
+import { useState } from 'react';
+import { useTimeoutFn } from 'react-use';
+import { Transition } from '@headlessui/react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import clsx from 'clsx';
 import {
   BoltIcon,
   SparklesIcon,
@@ -6,8 +11,6 @@ import {
   CubeIcon,
   ScaleIcon
 } from '@heroicons/react/24/outline';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import toast from 'react-hot-toast';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import bash from 'react-syntax-highlighter/dist/cjs/languages/prism/bash';
 import python from 'react-syntax-highlighter/dist/cjs/languages/prism/python';
@@ -86,6 +89,17 @@ const features = [
 ];
 
 export default function Home() {
+  const [firstCodeBlockCopied, setFirstCodeBlockCopied] = useState(false);
+  let [, , resetFirstCodeBlockCopied] = useTimeoutFn(
+    () => setFirstCodeBlockCopied(false),
+    1300
+  );
+  const [secondCodeBlockCopied, setSecondCodeBlockCopied] = useState(false);
+  let [, , resetSecondCodeBlockCopied] = useTimeoutFn(
+    () => setSecondCodeBlockCopied(false),
+    1300
+  );
+
   return (
     <>
       <div className="relative px-6 lg:px-8">
@@ -130,64 +144,104 @@ export default function Home() {
                 <div className="relative">
                   <CopyToClipboard
                     text="mamba install -c conda-forge datamol"
-                    onCopy={() =>
-                      toast.success('Copied to your clipboard', {
-                        position: 'bottom-left'
-                      })
-                    }
+                    onCopy={() => {
+                      setFirstCodeBlockCopied(true);
+                      resetFirstCodeBlockCopied();
+                    }}
                   >
                     <button className="group absolute top-0 right-0 ml-2 hidden h-9 w-9 items-center justify-center text-white sm:flex">
+                      <Transition
+                        show={firstCodeBlockCopied}
+                        enter="transition-opacity duration-500"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="transition-opacity duration-500"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                      >
+                        <>
+                          <span className="absolute inset-x-0 bottom-full mb-2.5 flex origin-bottom translate-y-0 scale-100 transform justify-center opacity-100 transition duration-500 ease-out">
+                            <span className="rounded-md bg-gray-900 py-1 px-3 text-[0.625rem] font-semibold uppercase leading-4 tracking-wide text-white drop-shadow-md filter">
+                              <>
+                                <svg
+                                  aria-hidden="true"
+                                  width="16"
+                                  height="6"
+                                  viewBox="0 0 16 6"
+                                  className="absolute top-full left-1/2 -mt-px -ml-2 text-gray-900"
+                                >
+                                  <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M15 0H1V1.00366V1.00366V1.00371H1.01672C2.72058 1.0147 4.24225 2.74704 5.42685 4.72928C6.42941 6.40691 9.57154 6.4069 10.5741 4.72926C11.7587 2.74703 13.2803 1.0147 14.9841 1.00371H15V0Z"
+                                    fill="currentColor"
+                                  ></path>
+                                </svg>
+                                Copied!
+                              </>
+                            </span>
+                          </span>
+                        </>
+                      </Transition>
                       <svg
-                        className="h-8 w-8 stroke-slate-400 transition group-hover:rotate-[-4deg] group-hover:stroke-slate-300"
+                        className={clsx(
+                          'h-8 w-8',
+                          firstCodeBlockCopied &&
+                            'rotate-[-8deg] stroke-brand-500',
+                          !firstCodeBlockCopied &&
+                            'stroke-slate-400 transition group-hover:rotate-[-4deg] group-hover:stroke-slate-300'
+                        )}
                         fill="none"
                         viewBox="0 0 32 32"
                         xmlns="http://www.w3.org/2000/svg"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       >
                         <path
                           d="M12.9975 10.7499L11.7475 10.7499C10.6429 10.7499 9.74747 11.6453 9.74747 12.7499L9.74747 21.2499C9.74747 22.3544 10.6429 23.2499 11.7475 23.2499L20.2475 23.2499C21.352 23.2499 22.2475 22.3544 22.2475 21.2499L22.2475 12.7499C22.2475 11.6453 21.352 10.7499 20.2475 10.7499L18.9975 10.7499"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         ></path>
                         <path
                           d="M17.9975 12.2499L13.9975 12.2499C13.4452 12.2499 12.9975 11.8022 12.9975 11.2499L12.9975 9.74988C12.9975 9.19759 13.4452 8.74988 13.9975 8.74988L17.9975 8.74988C18.5498 8.74988 18.9975 9.19759 18.9975 9.74988L18.9975 11.2499C18.9975 11.8022 18.5498 12.2499 17.9975 12.2499Z"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         ></path>
                         <path
                           d="M13.7475 16.2499L18.2475 16.2499"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         ></path>
                         <path
                           d="M13.7475 19.2499L18.2475 19.2499"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         ></path>
-                        <g className="opacity-0">
+                        <g
+                          className={clsx(!firstCodeBlockCopied && 'opacity-0')}
+                        >
                           <path
                             d="M15.9975 5.99988L15.9975 3.99988"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           ></path>
                           <path
                             d="M19.9975 5.99988L20.9975 4.99988"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           ></path>
                           <path
                             d="M11.9975 5.99988L10.9975 4.99988"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           ></path>
                         </g>
                       </svg>
@@ -209,64 +263,106 @@ export default function Home() {
                 <div className="relative">
                   <CopyToClipboard
                     text={secondCodeBlockContent}
-                    onCopy={() =>
-                      toast.success('Copied to your clipboard', {
-                        position: 'bottom-left'
-                      })
-                    }
+                    onCopy={() => {
+                      setSecondCodeBlockCopied(true);
+                      resetSecondCodeBlockCopied();
+                    }}
                   >
                     <button className="group absolute top-0 right-0 ml-2 hidden h-9 w-9 items-center justify-center text-white sm:flex">
+                      <Transition
+                        show={secondCodeBlockCopied}
+                        enter="transition-opacity duration-500"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="transition-opacity duration-500"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                      >
+                        <>
+                          <span className="absolute inset-x-0 bottom-full mb-2.5 flex origin-bottom translate-y-0 scale-100 transform justify-center opacity-100 transition duration-500 ease-out">
+                            <span className="rounded-md bg-gray-900 py-1 px-3 text-[0.625rem] font-semibold uppercase leading-4 tracking-wide text-white drop-shadow-md filter">
+                              <>
+                                <svg
+                                  aria-hidden="true"
+                                  width="16"
+                                  height="6"
+                                  viewBox="0 0 16 6"
+                                  className="absolute top-full left-1/2 -mt-px -ml-2 text-gray-900"
+                                >
+                                  <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M15 0H1V1.00366V1.00366V1.00371H1.01672C2.72058 1.0147 4.24225 2.74704 5.42685 4.72928C6.42941 6.40691 9.57154 6.4069 10.5741 4.72926C11.7587 2.74703 13.2803 1.0147 14.9841 1.00371H15V0Z"
+                                    fill="currentColor"
+                                  ></path>
+                                </svg>
+                                Copied!
+                              </>
+                            </span>
+                          </span>
+                        </>
+                      </Transition>
                       <svg
-                        className="h-8 w-8 stroke-slate-400 transition group-hover:rotate-[-4deg] group-hover:stroke-slate-300"
+                        className={clsx(
+                          'h-8 w-8',
+                          secondCodeBlockCopied &&
+                            'rotate-[-8deg] stroke-brand-500',
+                          !secondCodeBlockCopied &&
+                            'stroke-slate-400 transition group-hover:rotate-[-4deg] group-hover:stroke-slate-300'
+                        )}
                         fill="none"
                         viewBox="0 0 32 32"
                         xmlns="http://www.w3.org/2000/svg"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       >
                         <path
                           d="M12.9975 10.7499L11.7475 10.7499C10.6429 10.7499 9.74747 11.6453 9.74747 12.7499L9.74747 21.2499C9.74747 22.3544 10.6429 23.2499 11.7475 23.2499L20.2475 23.2499C21.352 23.2499 22.2475 22.3544 22.2475 21.2499L22.2475 12.7499C22.2475 11.6453 21.352 10.7499 20.2475 10.7499L18.9975 10.7499"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         ></path>
                         <path
                           d="M17.9975 12.2499L13.9975 12.2499C13.4452 12.2499 12.9975 11.8022 12.9975 11.2499L12.9975 9.74988C12.9975 9.19759 13.4452 8.74988 13.9975 8.74988L17.9975 8.74988C18.5498 8.74988 18.9975 9.19759 18.9975 9.74988L18.9975 11.2499C18.9975 11.8022 18.5498 12.2499 17.9975 12.2499Z"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         ></path>
                         <path
                           d="M13.7475 16.2499L18.2475 16.2499"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         ></path>
                         <path
                           d="M13.7475 19.2499L18.2475 19.2499"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         ></path>
-                        <g className="opacity-0">
+                        <g
+                          className={clsx(
+                            !secondCodeBlockCopied && 'opacity-0'
+                          )}
+                        >
                           <path
                             d="M15.9975 5.99988L15.9975 3.99988"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           ></path>
                           <path
                             d="M19.9975 5.99988L20.9975 4.99988"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           ></path>
                           <path
                             d="M11.9975 5.99988L10.9975 4.99988"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           ></path>
                         </g>
                       </svg>
