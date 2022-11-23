@@ -71,7 +71,7 @@ export default function Home() {
         <div className="mx-auto max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8">
           <div>
             <h2 className="px-6 text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:px-0 sm:text-left sm:text-4xl md:mt-48">
-              The largest pre-trained model <br className="hidden sm:block" />
+              The largest pre-trained GNN <br className="hidden sm:block" />
               for molecular featurization <br className="hidden sm:block" />
               and property prediction
             </h2>
